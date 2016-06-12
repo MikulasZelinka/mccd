@@ -1,5 +1,7 @@
 import csv
 import numpy
+import tsne
+import matplotlib.pyplot as plt
 
 
 def amp_to_int(amp):
@@ -100,3 +102,17 @@ with open('data/GCM_Test.res') as test_res:
 print('test values ', test_values)
 print('test amp ', test_amp)
 print()
+
+
+# t-sne on train data
+
+result = tsne.tsne(train_values, 0)
+N = len(result)
+colors = []
+for i in range(N):
+    colors.append(int(train_classes[i]))
+colors = numpy.asarray(colors)
+
+tsne.scatter(result, colors, class_desc)
+plt.show()
+#plt.savefig('img/tsne-train.png', dpi=120)
