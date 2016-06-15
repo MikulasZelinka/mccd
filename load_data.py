@@ -1,5 +1,7 @@
 import csv
+
 import numpy
+
 
 def amp_to_int(amp):
     if amp == 'A':
@@ -33,14 +35,14 @@ def load_data():
     for i in range(len(train_classes)):
         train_classes_binary[i, train_classes[i]] = 1
 
-    print('class count ', class_count)
-    print('class desc ', class_desc)
-    print()
-    print()
+    # print('class count ', class_count)
+    # print('class desc ', class_desc)
+    # print()
+    # print()
 
-    print('train classes ', train_classes)
-    print('train classes binary ', train_classes_binary)
-    print()
+    # print('train classes ', train_classes)
+    # print('train classes binary ', train_classes_binary)
+    # print()
 
 
     # test classes
@@ -58,9 +60,9 @@ def load_data():
     for i in range(len(test_classes)):
         test_classes_binary[i, test_classes[i]] = 1
 
-    print('test classes ', test_classes)
-    print('test classes binary ', test_classes_binary)
-    print()
+    # print('test classes ', test_classes)
+    # print('test classes binary ', test_classes_binary)
+    # print()
 
 
     # RES ###############################################################################
@@ -79,9 +81,9 @@ def load_data():
                     train_amp[i, j - 3, amp_to_int(row[2 * i + 3])] = 1
             j += 1
 
-    print('train values ', train_values)
-    print('train amp ', train_amp)
-    print()
+    # print('train values ', train_values)
+    # print('train amp ', train_amp)
+    # print()
 
 
     # test data
@@ -98,8 +100,8 @@ def load_data():
                     test_amp[i, j - 3, amp_to_int(row[2 * i + 3])] = 1
             j += 1
 
-    print('test values ', test_values)
-    print('test amp ', test_amp)
-    print()
+    # print('test values ', test_values)
+    # print('test amp ', test_amp)
+    # print()
 
     return train_values, train_classes, train_classes_binary, test_values, test_classes, test_classes_binary, class_desc
