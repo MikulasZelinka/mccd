@@ -59,9 +59,11 @@ all_values_rfe = numpy.concatenate((train_values_rfe, test_values_rfe))
 # print(result)
 #
 # print(max(history.history['val_acc']))
+
+for perc in [100]:
 # for perc in [100, 95, 90, 85, 80, 75, 70, 65, 60, 55, 50, 45, 40, 35, 30, 25, 20, 15, 10, 5]:
     # print()
     # for deg in range(6):
-    # deg = 1
-    # print('test accuracy with deg ', deg, ', perc: ', perc, ' - ', ova(train_values, train_classes, test_values,
-    #                                                                        test_classes, deg=deg, perc=perc))
+    deg = 1
+    print('test accuracy with deg ', deg, ', perc: ', perc, ' - ', ova(train_values_rfe, train_classes, test_values_rfe,
+                                                                           test_classes, class_desc, deg=deg, perc=perc))

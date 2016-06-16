@@ -85,8 +85,8 @@ def load_data():
                 if rfe_mask[j - 3]:
                     rfe = True
                     rfei += 1
-                    print(j-3)
-                    print(rfei)
+                    # print(j-3)
+                    # print(rfei)
                 for i in range(144):
                     train_values[i, j - 3] = row[2 * i + 2]
                     train_amp[i, j - 3, amp_to_int(row[2 * i + 3])] = 1
