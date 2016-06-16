@@ -1,6 +1,6 @@
 import numpy
 from load_data import load_data
-# from nn import nn
+from nn import nn
 from ova import ova
 from pca import pca
 from rfe import rfe
@@ -55,15 +55,14 @@ all_values_rfe = numpy.concatenate((train_values_rfe, test_values_rfe))
 # f.close()
 
 # nn
-# result, history = nn(train_values, train_classes_binary, test_values, test_classes_binary)
-# print(result)
-#
-# print(max(history.history['val_acc']))
+result, history = nn(train_values_rfe, train_classes_binary, test_values_rfe, test_classes_binary)
+print(result)
+print(max(history.history['val_acc']))
 
-for perc in [100]:
+# for perc in [100]:
 # for perc in [100, 95, 90, 85, 80, 75, 70, 65, 60, 55, 50, 45, 40, 35, 30, 25, 20, 15, 10, 5]:
     # print()
     # for deg in range(6):
-    deg = 1
-    print('test accuracy with deg ', deg, ', perc: ', perc, ' - ', ova(train_values_rfe, train_classes, test_values_rfe,
-                                                                           test_classes, class_desc, deg=deg, perc=perc))
+    # deg = 1
+    # print('test accuracy with deg ', deg, ', perc: ', perc, ' - ', ova(train_values_rfe, train_classes, test_values_rfe,
+    #                                                                        test_classes, class_desc, deg=deg, perc=perc))
