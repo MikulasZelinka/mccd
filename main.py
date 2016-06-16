@@ -5,15 +5,24 @@ from ova import ova
 from pca import pca
 from rfe import rfe
 from tsne import tsne
-import json
-numpy.set_printoptions(threshold=1000000)
+# import json
+# numpy.set_printoptions(threshold=1000000)
 
-train_values, train_classes, train_classes_binary, test_values, test_classes, test_classes_binary, class_desc\
+train_values, train_values_rfe, train_classes, train_classes_binary, test_values, test_values_rfe, test_classes, test_classes_binary, class_desc\
     = load_data()
 
 all_values = numpy.concatenate((train_values, test_values))
 all_classes = numpy.concatenate((train_classes, test_classes))
 all_classes_binary = numpy.concatenate((train_classes_binary, test_classes_binary))
+
+all_values_rfe = numpy.concatenate((train_values_rfe, test_values_rfe))
+
+# print(all_values_rfe.shape)
+# print(all_values_rfe)
+
+# print(all_values_rfe[:,13])
+# print(all_values[:,46])
+
 
 # print(all_values)
 # print(all_classes)
@@ -29,21 +38,21 @@ all_classes_binary = numpy.concatenate((train_classes_binary, test_classes_binar
 # print(pca)
 
 
-x = numpy.asarray(all_values, dtype=float)
-y = numpy.asarray(all_classes, dtype=int)
+# x = numpy.asarray(all_values, dtype=float)
+# y = numpy.asarray(all_classes, dtype=int)
 
 # rfe
-n_features, support, ranking, grid_scores, estimator = rfe(x,
-                                                           y)
-print(n_features, support, ranking, grid_scores, estimator)
+# n_features, support, ranking, grid_scores, estimator = rfe(x,
+#                                                            y)
+# print(n_features, support, ranking, grid_scores, estimator)
 
-f = open('log.log', 'a')
-f.write(str(n_features))
-f.write(str(support))
-f.write(str(ranking))
-f.write(str(grid_scores))
-f.write(str(estimator))
-f.close()
+# f = open('log.log', 'a')
+# f.write(str(n_features))
+# f.write(str(support))
+# f.write(str(ranking))
+# f.write(str(grid_scores))
+# f.write(str(estimator))
+# f.close()
 
 # nn
 # result, history = nn(train_values, train_classes_binary, test_values, test_classes_binary)
